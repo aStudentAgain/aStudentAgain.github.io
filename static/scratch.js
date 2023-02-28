@@ -1,20 +1,23 @@
 function stylizer(){
+    // query the checkboxes for user choices
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    // JS doesn't have dictionaries, but it does have objects, and that'll do!
+    let results = {};
+    // JS doesn't have python's 'for x in array', but FreeCodeCamp taught me this way to
+    // loop through the contents of an object and do something to it with arrow functions
+    checkboxes.forEach(checkbox => { results[checkbox.name] = checkbox.checked; });
+    // console.log(results);
 
     // get our variables from the user's input
     // start with the word at issue
     let input_string = document.querySelector("#user_input").value
 
-    // the meme is A E S T H E T I C, not a e s t h e t i c
-    input_string = input_string.toUpperCase();
-
-    // next query the checkboxes
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    // JS doesn't have dictionaries, but it does have objects, and that'll do!
-    let results = {};
-    // JS doesn't have 'for x in array', but FreeCodeCamp taught me this way to
-    // loop through the contents of an object and do something to it with arrow functions
-    checkboxes.forEach(checkbox => { results[checkbox.name] = checkbox.checked; });
-    // console.log(results);
+    if (results["caps"] == true){
+        input_string = input_string.toUpperCase();
+    }
+    if (results["spaces"] == false){
+        input_string = input_string.replace(/\s/g, '');
+    }
 
     /*
     I think the approach for any selected option(s) is to first create a 2d array of the input
@@ -25,6 +28,8 @@ function stylizer(){
 
     // input data will manipulable in array format
     let input_string_array = input_string.split("");
+
+
     // reversing now and storing in a separate array is going to be easier than calling functions ad hoc
     let reversed_input_string_array = input_string.split("").reverse();
 

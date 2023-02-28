@@ -28,7 +28,9 @@
         <div class="section container">
             <h2>Input</h2>
             <form onsubmit="return false">
-                <input type="text" autofocus autocomplete="off" placeholder="A E S T H E T I C" id="user_input" name="user_input" onSubmit="stylizer()" maxlength="20">
+                <input type="text" autocorrect="off" autocapitalize="off" spellcheck="false"
+                autofocus autocomplete="off" placeholder="A E S T H E T I C" id="user_input"
+                name="user_input" onSubmit="stylizer()" maxlength="20">
             </form>
         </div>
 
@@ -58,6 +60,15 @@
             <div class="form-check-inline">
                 <input class="form-check-input" type="checkbox" role="switch" name="backslash" id="backslash" onclick="stylizer()"/>
                 <label class="form-check-label" for="backslash">⟍</label>
+            </div>
+            <br>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="caps" id="caps" checked onclick="stylizer()"/>
+                <label class="form-check-label" for="caps">ALL CAPS</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="spaces" id="spaces" onclick="stylizer()"/>
+                <label class="form-check-label" for="backslash">Preserve spaces</label>
             </div>
         </div>
 
