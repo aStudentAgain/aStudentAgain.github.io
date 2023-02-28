@@ -53,7 +53,7 @@ h1 {
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    max-width: 50%;
+    width: auto;
 }
 
 #photo{
