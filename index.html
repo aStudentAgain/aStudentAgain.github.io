@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <!-- from favicon.io, adjusted for Flask file structure -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <title>A E S T H E T I C I Z E R</title>
+    </head>
+
+    <body>
+        <h1>A E S T H E T I C I Z E R</h1>
+
+        <div class="section container">
+            <h2>Input</h2>
+            <form onsubmit="return false">
+                <input type="text" autofocus autocomplete="off" placeholder="A E S T H E T I C" id="user_input" name="user_input" onSubmit="stylizer()" maxlength="20">
+            </form>
+        </div>
+
+        <div class="section container">
+            <h2>Options</h2>
+
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="top" id="top" onclick="stylizer()" checked/>
+                <label class="form-check-label" for="top">Top</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="left" id="left" onclick="stylizer()"/>
+                <label class="form-check-label" for="left">Left</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="right" id="right" onclick="stylizer()"/>
+                <label class="form-check-label" for="right">Right</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="bottom" id="bottom" onclick="stylizer()"/>
+                <label class="form-check-label" for="bottom">Bottom</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="forward" id="forward" onclick="stylizer()"/>
+                <label class="form-check-label" for="forward">⟋</label>
+            </div>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" role="switch" name="backslash" id="backslash" onclick="stylizer()"/>
+                <label class="form-check-label" for="backslash">⟍</label>
+            </div>
+        </div>
+
+        <div class="section container">
+            <h2>Output</h2>
+        </div>
+        <div>
+            <button class="btn btn-outline-dark" type="button" id="copy-button" data-toggle="tooltip"
+            data-placement="button" title="Copy to Clipboard" onclick="copyToClipboard('output')">
+                Copy to Clipboard
+            </button>
+
+            <!--
+            None of this below works right, and I'm unable to make it work.  There's inconsistent browser
+            support for most of these concepts. Each concept + browser permutation requires some finesse
+            to implement that's simply beyond my abilities after hours of trying, not all of which is
+            reflected in commented code. Most seem solved online, but rely upon concepts I just don't
+            know about yet and am unable to adequately teach myself, including asyncronous data types
+            and methods that all rely on proper async implementations (promises, in particular).
+            All of my attempts failed somewhere, because some of these async features apparently need
+            several things to be implemented properly in order for any of them to work.
+
+            I learned a lot conceptually about how modern web pages work, but not enough practicaly
+            to make these features happen.  I leave them here as a memo to myself about where
+            things left off, should I come back and continue iterating.
+
+            <button class="btn btn-outline-dark" type="button" id="image-button" data-toggle="tooltip"
+            data-placement="button" title="Copy as Image" onclick="copyAsImage('output')">
+                Copy as Image
+            </button>
+            <button class="btn btn-outline-dark" type="button" id="image-button" data-toggle="tooltip"
+            data-placement="button" title="Display as Image" onclick="displayAsImage('output')">
+                Display as Image
+            </button>
+            <button class="btn btn-outline-dark" type="button" id="share-button" data-toggle="tooltip"
+            data-placement="button" name="share-button" title="Share" onclick="share('output')">
+                Share
+            </button>
+            <p id="share_message"></p>
+            --->
+       </div>
+        <div id="output" class="section container embed"></div>
+
+        <div id="photo" class="section container embed">
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+        <script type="text/javascript" src= "/static/scratch.js"></script>
+
+    </body>
+</html>
