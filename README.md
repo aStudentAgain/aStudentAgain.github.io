@@ -1,2 +1,2 @@
 # aStudentAgain.github.io
-ASA Industries
+ASA Industries, Inc.
